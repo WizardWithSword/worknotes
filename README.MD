@@ -21,6 +21,9 @@ perl -p -i.backup -e "s/http:\/\/xxx.xx.xx.xx:8888/https:\/\/api.xxx.xx/g" ./*.c
 grep -n "keyword" *
 搜索当前文件夹下所有文件中包含文本 keyword 的文件，并列出这个搜索字符所处的行
 
+crontab -l 查看定时任务
+crontab -e 编辑定时任务
+
 
 2019.01.18
 ##audio play:
@@ -65,5 +68,11 @@ mysql.createPool( {
 ```
 ps:虽然数据库部分设置成utf8mb4_unicode_ci，node链接时charset是utf8mb4_general_ci，但是好像用着没问题
 end
+
+2019.07.08
+正则表达式回溯陷阱。
+正则表达式的？贪婪匹配，在不确定的测试文本下，大量的尝试匹配会导致性能下降。匹配HTML字符串中的图片src地址： 
+let reg = /<img.*?src=[\'|\"](.*?(?:[\.gif|\.png|\.jpeg|\.jpg]))[\'|\"].*?[\/]?>/ig
+且 .*? 有大量的回溯
 
 
